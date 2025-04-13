@@ -1,12 +1,8 @@
 # Git 很慢
 
-2025 年 1 月 23 日
-
-太长不看：抱怨一下 Git 的数据结构，
-
-后续：ROGit 改名为 [Bushi 卜筮](https://github.com/qaqland/bushi) 基本就解决了这个问题，其余部分还在做
-
----
+> 2025 年 1 月 23 日 抱怨一下 Git 的数据结构
+>
+> 2025 年 4 月 13 日 后续：ROGit 改名为 [Bushi 卜筮](https://github.com/qaqland/bushi)，基本解决了这个问题，其余部分还在做
 
 一年半之前，我有一个 ROGit 项目计划，旨在构建一个 cgit 同生态位的现代替代品
 
@@ -29,6 +25,11 @@
 ## Git Object
 
 理论上讲 Git 中有三个大类别的对象：Commit、Tree、Blob，具体到解析时还有 Commit 的同类 Tag 及 Note。这些对象以各自 Object 的 hash 作为索引，经 zlib 压缩后保存在 `.git/objects` 下的文件中，纯正文件系统驱动，并在需要时被 Git 解析。
+
+Git 的数据结构为写多读少设计，因此其他程序应避免将 Git 作为数据库使用。具体保存格式有 Loose Objects 和 Packfiles 两类，参考阅读：
+
+- <https://git-scm.com/book/en/v2/Git-Internals-Packfiles>
+- <https://github.blog/open-source/git/gits-database-internals-i-packed-object-store/>
 
 ## Git Commit
 

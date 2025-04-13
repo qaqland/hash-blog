@@ -1,10 +1,8 @@
 # Apktools
 
-2025 年 4 月 13 日
-
-Alpine Linux 相关的基础使用，主要是系统包管理器
-
----
+> 2025 年 4 月 13 日
+>
+> Alpine Linux 相关的基础使用，主要是系统包管理器
 
 ## mirror
 
@@ -30,7 +28,7 @@ http://mirror.nyist.edu.cn/alpine/edge/community
 http://mirror.nyist.edu.cn/alpine/edge/testing
 ```
 
-修改后刷新生效（不刷新也没什么就是）
+修改后刷新生效（不刷新也没事，默认间隔后使用会自动刷新）
 
 ```bash
 $ apk update
