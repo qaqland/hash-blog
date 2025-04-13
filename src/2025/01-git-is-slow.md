@@ -81,7 +81,6 @@ Git 在 2.18 版本后引入了**提交图**的概念，使用单独的提交图
 $ git gc --aggressive
 
 $ git commit-graph write --changed-paths
-
 ```
 
 1. 全量 pack 保存，避免 Git Object 保存在 loose 时反复文件 IO
