@@ -71,3 +71,4 @@
 - [Gitblit](https://github.com/gitblit-org/gitblit)
 - [OneDev](https://onedev.io)
 - [Pagure](https://pagure.io)
+- [Radicle](https://radicle.xyz/)
