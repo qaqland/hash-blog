@@ -1,8 +1,12 @@
 # Git 很慢
 
-> 2025 年 1 月 23 日 抱怨一下 Git 的数据结构
->
-> 2025 年 4 月 13 日 后续：ROGit 改名为 [Bushi 卜筮](https://github.com/qaqland/bushi)，基本解决了这个问题，其余部分还在做
+//
+
+2025 年 1 月 23 日 抱怨一下 Git 的数据结构
+
+2025 年 4 月 13 日 后续：ROGit 改名为 [Bushi 卜筮](https://github.com/qaqland/bushi)，基本解决了这个问题，其余部分还在做
+
+//
 
 一年半之前，我有一个 ROGit 项目计划，旨在构建一个 cgit 同生态位的现代替代品
 

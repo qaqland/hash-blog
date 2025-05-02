@@ -1,8 +1,6 @@
 # Apktools
 
-> 2025 年 4 月 13 日
->
-> Alpine Linux 相关的基础使用，主要是系统包管理器
+2025 年 4 月 13 日 Alpine Linux 相关的基础使用，主要是系统包管理器
 
 ## mirror
 

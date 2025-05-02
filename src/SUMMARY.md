@@ -10,4 +10,5 @@
 # Alpine Linux
 
 - [Apktools](./alpine/apktools.md)
+- [Setup-Aports](./alpine/setup-aports.md)
 - [Abuild-Rust](./alpine/abuild-rust.md)
