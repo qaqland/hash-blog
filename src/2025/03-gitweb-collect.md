@@ -34,6 +34,7 @@
 ### Rust
 
 - <https://github.com/w4/rgit>
+- <https://github.com/alexwennerberg/mygit>
 - <https://github.com/qaqland/bushi> Here is mine
 
 ### Golang
