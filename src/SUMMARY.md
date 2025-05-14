@@ -1,6 +1,7 @@
 # Summary
 
 - [2025]()
+  - [JuDou 句读](./2025/05-lsp-judou.md)
   - [Git 祖先跳表](./2025/04-git-skip-list.md)
   - [GitWeb Collect](./2025/03-gitweb-collect.md)
   - [VSCode on Alpine Linux](./2025/02-alpine-vscode-remote.md)
