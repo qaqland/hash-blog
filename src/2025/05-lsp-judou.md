@@ -4,7 +4,7 @@
 
 ## 概述
 
-JuDou 是一个基于 *LSP* 的代码审阅辅助工具，通过在本地建立**预缓存**，实现在网页端的语义高亮和引用跳转。
+JuDou 是一个基于 _LSP_ 的代码审阅辅助工具，通过在本地建立**预缓存**，实现在网页端的语义高亮和引用跳转。
 
 - 服务端：资源消耗极低
 - 客户端：无需环境配置
@@ -32,4 +32,3 @@ JuDou 是一个基于 *LSP* 的代码审阅辅助工具，通过在本地建立*
 - <https://github.com/netmute/ctags-lsp>
 - <https://github.com/sourcegraph/jsonrpc2>
 - <https://microsoft.github.io/language-server-protocol/>
-
