@@ -1,4 +1,4 @@
-# TinyWL 源码分析（学习）记录
+# TinyWL 源码学习记录
 
 2025 年 5 月 22 日
 
@@ -105,4 +105,47 @@ wlr_scene_node_set_position(
 
 对于坐标来说，`wlr_xdg_toplevel` 的坐标不等于 `wlr_surface` 的坐标，因此需要考虑两者之间的相对值。
 
-// TODO
+## 键盘状态-焦点 surface
+
+```c
+struct wlr_surface* previous_surface = seat->keyboard_state.focused_surface;
+
+// tinywl.c @focuse_toplevel
+```
+
+在 `wlroots` 的 seat 中这个状态鼠标键盘各有一个：
+
+```c
+struct wlr_surface *pointer_focus = wlr_seat->pointer_state.focused_surface;
+if (pointer_focus != NULL &&
+        wl_resource_get_client(pointer_focus->resource) == client) {
+    wlr_seat->pointer_state.focused_client = seat_client;
+}
+
+struct wlr_surface *keyboard_focus = wlr_seat->keyboard_state.focused_surface;
+if (keyboard_focus != NULL &&
+        wl_resource_get_client(keyboard_focus->resource) == client) {
+    wlr_seat->keyboard_state.focused_client = seat_client;
+}
+
+// types/seat/wlr_seat.c @static struct wlr_seat_client *seat_client_create()
+```
+
+当 `wlr_seat` 没有资源时，持有的焦点也要销毁（不过一般一个 WM 只有一个实例）
+
+```c
+if ((capabilities & WL_SEAT_CAPABILITY_POINTER) == 0) {
+    if (focused_client != NULL && focused_surface != NULL) {
+        seat_client_send_pointer_leave_raw(focused_client, focused_surface);
+    }
+}
+
+// types/seat/wlr_seat.c @void wlr_seat_set_capabilities()
+```
+
+所以这个变量可以为空，仅表示当前 seat 相关的焦点状态。常规修改发生在一些 enter 事件上：
+
+- `wlr_seat_keyboard_enter`
+- `wlr_seat_pointer_enter`
+
+不过注释说更应该使用 `wlr_seat_*_notify_enter`，内部会自行调整。
