@@ -149,3 +149,15 @@ if ((capabilities & WL_SEAT_CAPABILITY_POINTER) == 0) {
 - `wlr_seat_pointer_enter`
 
 不过注释说更应该使用 `wlr_seat_*_notify_enter`，内部会自行调整。
+
+## `focus_toplevel`
+
+主要在以下三个位置调用：
+
+- `handle_keybinding` 做窗口轮换时重新获得焦点
+- `server_cursor_button` 鼠标点击事件
+- `xdg_toplevel_map` 新窗口生成时拿到焦点
+
+对于这三种情况基本可以满足 `focuse_output` 的等效替换，不过要考虑不可最大化的窗口处理
+
+// TODO
