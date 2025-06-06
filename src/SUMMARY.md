@@ -1,6 +1,7 @@
 # Summary
 
 - [2025]()
+  - [Alpine Linux 软件包仓库一致性检查](./2025/10-repo-check.md)
   - [TinyWL 源码学习记录](./2025/08-tinywl.md)
   - [进程与环境变量](./2025/07-process-env.md)
   - [JuDou 句读](./2025/05-lsp-judou.md)
