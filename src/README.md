@@ -24,10 +24,3 @@
 
 以上两个项目进行了初步尝试，位于 30% 阶段。
 
-## 友链
-
-> 断更致歉、遗漏致歉
-
-- [Lindsay](https://lin.moe/)
-- [夜鹰的巢](https://acyanbird.tech/)
-
