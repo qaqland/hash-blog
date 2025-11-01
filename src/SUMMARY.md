@@ -4,7 +4,7 @@
 
 # Journal
 
-- [2025 10](2025-10-echo.md)
+- [2025-10](2025-10-echo.md)
 
 # The Archives
 
