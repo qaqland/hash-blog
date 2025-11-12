@@ -5,6 +5,7 @@
 才疏学浅，应该有很多不对的地方，欢迎和我一起讨论 `^^`
 
 - 在线地址 <https://hash.qaq.land>
+- 个人主页 <https://qaq.land>
 - 源码仓库 <https://github.com/qaqland/hash-blog>
 
 ## 关于我
