@@ -1,7 +1,6 @@
 [book]
 authors = ["qaqland"]
 language = "en"
-multilingual = false
 src = "src"
 title = "qaqland - hash"
 
