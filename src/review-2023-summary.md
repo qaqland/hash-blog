@@ -19,7 +19,7 @@
 
 ## 计划：归纳之前 TiddlyWiki 的内容
 
-- hash-blog
+- hash-blog（就是这里的 mdBook）
 - flomo
 - 实体媒介？
 

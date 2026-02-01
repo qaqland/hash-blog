@@ -1,4 +1,4 @@
-# String Macro
+# C 跨行字符串
 
 2025-12-13
 
@@ -27,8 +27,8 @@ the fragment. 不仅仅会在字符串两端加上双引号
 - The preprocessor backslash-escapes the quotes surrounding embedded string
 constants, and all backslashes within string and character constants.
 而且会转义字符串中适当位置的双引号
-- Any sequence of whitespace in the middle of the text is converted to a single space in the stringized result.
-像 Markdown 一样压缩所有的空白字符到一个空格
+- Any sequence of whitespace in the middle of the text is converted to a single
+space in the stringized result. 像 Markdown 一样压缩所有的空白字符到一个空格
 - Comments are replaced by whitespace
 忽略注释（因为注释会在预处理器之前被处理）
 

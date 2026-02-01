@@ -10,4 +10,5 @@ create-missing = false
 [output.html]
 no-section-label = true
 git-repository-url = "https://github.com/qaqland/hash-blog"
+sidebar-header-nav = false
 
