@@ -17,11 +17,14 @@
 - [Git Summary](2025-git-summary.md)
 - [Git 提交代次](2025-git-generation.md)
 - [Git 祖先跳表](2025-git-skip-list.md)
+- [ALSA Conf](2026-alsa-conf.md)
+- [New MkDot](2026-new-mkdot.md)
 
 # Monthly Review
 
 - [2026](review-2026-summary.md)
   - [2026-01](review-2026-01.md)
+  - [2026-02](review-2026-02.md)
 - [2025](review-2025-summary.md)
   - [2025-10](review-2025-10.md)
   - [2025-11](review-2025-11.md)
