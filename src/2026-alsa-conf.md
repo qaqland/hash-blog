@@ -7,8 +7,8 @@
 当前播放音乐有以下几个相对底层的接口：
 
 - ALSA 接口
-- PulseAudio 接口
 - PipeWire 接口
+- PulseAudio 接口
 
 其中，ALSA 可以通过「配置文件」默认将播放转发到 PulseAudio 或 PipeWire 接口。
 PipeWire 提供了 PulseAudio 兼容接口，以 pipewire-pulse 包的形式存在：
@@ -35,18 +35,18 @@ $ cat /etc/alsa/conf.d/99-pulse.conf
 # PulseAudio alsa plugin configuration file to set the pulseaudio plugin as
 # default output for applications using alsa when pulseaudio is running.
 hook_func.pulse_load_if_running {
-        lib "libasound_module_conf_pulse.so"    <<< alsa-plugins 提供
-        func "conf_pulse_hook_load_if_running"
+    lib "libasound_module_conf_pulse.so"        <<< alsa-plugins 提供
+    func "conf_pulse_hook_load_if_running"
 }
 
 @hooks [
-        {
-                func pulse_load_if_running
-                files [
-                        "/usr/share/alsa/pulse-alsa.conf"   <<< pulseaudio 提供
-                ]
-                errors false
-        }
+    {
+        func pulse_load_if_running
+        files [
+            "/usr/share/alsa/pulse-alsa.conf"   <<< pulseaudio 提供
+        ]
+        errors false
+    }
 ]
 ```
 
@@ -71,13 +71,16 @@ pipewire-alsa: /usr/share/alsa/alsa.conf.d/50-pipewire.conf
 pipewire-alsa: /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf
 ```
 
-但是我们没有，所以此时系统里的 APP 如果调用了 ALSA 相关接口播放，那处理路径为：
+但是我们没有（`pipewire-alsa` 与 `pulseaudio` 两包冲突），
+所以此时系统里的 APP 如果调用了 ALSA 相关接口播放，那处理路径为：
 
 1. ALSA 接口转发到 PulseAudio 接口
 2. PulseAudio 接口由 PipeWire 兼容
 
-造成了冗余的依赖关系。一旦卸载 PulseAudio，某些使用 ALSA 接口的应用，如
-deepin-music 就不工作（因为硬件资源已被系统服务占据）。
+![pulseaudio-alsa](asserts/pulseaudio-alsa.png)
+
+ALSA 转发的配置文件来自 PulseAudio，缺少转发就会让客户端尝试直接打开 `/dev/snd`
+设备，而这些节点一般被 PipeWire 和 WirePlumber 进程占据，无法正常播放。
 
 ```
 $ aplay xxx.wav
@@ -130,11 +133,15 @@ $ ls /etc/alsa/conf.d/
 ```
 
 配置文件默认是 `+` merge + create，同样的标识符号还有
-`-` merge、`?` 缺省默认、`!` 覆盖。
+`-` merge、`?` 缺省默认、`!` 覆盖（常用来设置默认音频设备）。
+`u` 排在 `i` 后面，所以 `99-pipe` 和 `99-pulse` 配置文件同时存在时后者会覆盖前者。
 
 ## pipewire-alsa
 
-上游社区已经在 3 年前讨论过这个问题。
+Debian 上游社区已经在 3 年前讨论过这个问题，此处的争执更多在语义完整性上：
+当 PulseAudio 作为音频服务时，ALSA 被 PulseAudio 代理；
+现在 PipeWire 接替了 PulseAudio，ALSA 应该被 PipeWire 直接代理还是因为兼容
+PulseAudio 被兼容代理呢？
 
 ```
 pipewire (0.3.60-1) unstable; urgency=medium
