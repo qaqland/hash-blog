@@ -20,6 +20,7 @@
 - [ALSA Conf](2026-alsa-conf.md)
 - [New MkDot](2026-new-mkdot.md)
 - [Foot Size Debug](2026-foot-size.md)
+- [Why Keyi Sudo](2026-keyi-sudo.md)
 
 # Monthly Review
 
